@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101d22" />
+  <title>Sprout Squad: Garden Brawl</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Sprout Squad arena game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Sprout Squad home"><span class="brand-mark">✿</span><span>SPROUT<span class="brand-light">SQUAD</span></span></a>
+      <div class="top-center"><span class="season-dot"></span> GARDEN OPS <span class="top-divider">/</span> <span id="top-status">TRAINING GROUNDS</span></div>
+      <button class="sound-button" id="sound-toggle" aria-label="Toggle sound">♫ <span>SOUND ON</span></button>
+    </header>
+
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="mission-card glass">
+        <div class="mission-eyebrow"><span class="live-dot"></span> LIVE MISSION <span class="mission-tag">PVE</span></div>
+        <div class="mission-title">Lawn of the Living</div>
+        <div class="mission-meta"><span id="wave-label">WAVE 1 / 3</span><span class="meta-sep">•</span><span id="enemy-count">0 HOSTILES</span></div>
+        <div class="objective-track"><i id="objective-fill"></i></div>
+      </div>
+      <div class="score-pill glass"><span class="score-icon">✦</span><span id="score-value">0000</span><span class="score-label">SCORE</span></div>
+      <div class="health-card glass">
+        <div class="health-head"><span>VITALS</span><span id="health-value">100</span></div>
+        <div class="health-track"><i id="health-fill"></i></div>
+        <div class="health-foot"><span id="class-name-hud">SUNBLOOM</span><span class="health-state">● ONLINE</span></div>
+      </div>
+      <div class="ammo-card glass"><span class="ammo-icon">▰</span><div><b id="ammo-value">12</b><small> / 48</small></div><span class="ammo-label">SEED BURST</span></div>
+    </section>
+
+    <div class="center-notice hide" id="center-notice"><span class="notice-kicker">WAVE INCOMING</span><b>Hold the garden!</b><span>Get ready, sprout.</span></div>
+    <div class="crosshair" id="crosshair"><i></i><b></b><i></i></div>
+    <div class="damage-flash" id="damage-flash"></div>
+
+    <section class="start-screen" id="start-screen">
+      <div class="start-content">
+        <div class="pretitle"><span class="pretitle-line"></span> THE GARDEN NEEDS YOU <span class="pretitle-line"></span></div>
+        <h1>GET YOUR<br><em>GROW ON.</em></h1>
+        <p class="hero-copy">The undead are back on the lawn. Pick your sprout, gear up, and send them packing.</p>
+        <div class="class-picker" role="group" aria-label="Choose your hero">
+          <button class="class-card selected" data-class="sunbloom">
+            <span class="class-art art-sun">✿</span><span class="class-copy"><b>Sunbloom</b><small>All-rounder · Seed blaster</small></span><span class="class-check">✓</span>
+          </button>
+          <button class="class-card" data-class="thorn">
+            <span class="class-art art-thorn">♟</span><span class="class-copy"><b>Thornshot</b><small>Ranger · Long-range burst</small></span><span class="class-check">✓</span>
+          </button>
+          <button class="class-card" data-class="moss">
+            <span class="class-art art-moss">⬟</span><span class="class-copy"><b>Mossback</b><small>Tank · Heavy seed cannon</small></span><span class="class-check">✓</span>
+          </button>
+        </div>
+        <button class="play-button" id="play-button"><span>DEPLOY TO LAWN</span><b>↗</b></button>
+        <div class="controls-note"><span>⌨ WASD / ARROWS</span><i></i><span>🖱 AIM + FIRE</span><i></i><span>SPACE SPECIAL</span></div>
+      </div>
+      <div class="hero-aside"><span class="aside-orbit orbit-one"></span><span class="aside-orbit orbit-two"></span><span class="aside-spark">✦</span><div class="hero-character">✿</div><div class="aside-label"><small>YOUR HERO</small><b id="hero-selected-name">SUNBLOOM</b><span>FIELD SPECIALIST / LV. 01</span></div></div>
+      <div class="start-bottom"><span>GARDEN OPS DIVISION</span><span>SECTOR 07 — SUNSET PARK</span></div>
+    </section>
+
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joy-zone" id="joy-zone"><div class="joy-base"><div class="joy-knob" id="joy-knob"></div></div><span>MOVE</span></div>
+      <div class="mobile-actions"><button id="special-button" class="action-button special-button"><span>✦</span><small>SPECIAL</small></button><button id="fire-button" class="action-button fire-button"><span>✹</span><small>FIRE</small></button></div>
+    </div>
+
+    <div class="end-screen hidden" id="end-screen">
+      <div class="end-panel glass"><div class="end-icon" id="end-icon">✿</div><div class="pretitle" id="end-kicker">MISSION COMPLETE</div><h2 id="end-title">LAWN<br><em>SAVED.</em></h2><p id="end-copy">The garden is looking greener already.</p><div class="result-stats"><div><b id="final-score">0000</b><small>FINAL SCORE</small></div><div><b id="final-kills">00</b><small>HOSTILES CLEARED</small></div><div><b id="final-wave">03</b><small>WAVES SURVIVED</small></div></div><button class="play-button" id="again-button"><span>PLAY AGAIN</span><b>↗</b></button><button id="back-button" class="text-button">CHANGE HERO</button></div>
+    </div>
+    <div class="toast" id="toast"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
