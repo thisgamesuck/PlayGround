@@ -1,0 +1,7 @@
+com.sproutsquad.gardenbrawl.app-pngs-0 /home/runner/work/PlayGround/PlayGround/app/build/generated/res/pngs/debug
+com.sproutsquad.gardenbrawl.app-resValues-1 /home/runner/work/PlayGround/PlayGround/app/build/generated/res/resValues/debug
+com.sproutsquad.gardenbrawl.app-packageDebugResources-2 /home/runner/work/PlayGround/PlayGround/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.sproutsquad.gardenbrawl.app-packageDebugResources-3 /home/runner/work/PlayGround/PlayGround/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.sproutsquad.gardenbrawl.app-debug-4 /home/runner/work/PlayGround/PlayGround/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.sproutsquad.gardenbrawl.app-debug-5 /home/runner/work/PlayGround/PlayGround/app/src/debug/res
+com.sproutsquad.gardenbrawl.app-main-6 /home/runner/work/PlayGround/PlayGround/app/src/main/res
